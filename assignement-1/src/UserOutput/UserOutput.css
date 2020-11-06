@@ -1,0 +1,10 @@
+.UserOutput {
+    font-size: 24px;
+    text-decoration: underline;
+}
+.userName {
+    color: lightgreen;
+}
+.userName:hover {
+    color: green;
+}
