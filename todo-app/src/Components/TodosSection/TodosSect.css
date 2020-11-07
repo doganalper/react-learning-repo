@@ -1,0 +1,37 @@
+.TodosSect {
+    width: 100%;
+    margin-top: 20px;
+    background-color: aliceblue;
+    padding: 10px 20px;
+    box-sizing: border-box;
+    border-radius: 15px;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.todoColumn {
+    width: 48%;
+    height: 400px;
+    background: red;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.todoRow {
+    margin-bottom: 10px;
+    padding: 5px;
+    box-sizing: border-box;
+    border: 1px solid black;
+    display: flex;
+    justify-content: space-between;
+}
+
+.doneBtn {
+    border: 1px solid green;
+    background-color: lightgreen;
+    box-sizing: border-box;
+    padding: 2px 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
