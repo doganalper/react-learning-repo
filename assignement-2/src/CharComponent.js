@@ -1,13 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class CharComponent extends Component {
-    render() {
-        return (
-            <div className="Char" onClick={this.props.removeChar}>
-                {this.props.character}
-            </div>
-        );
-    }
-}
+const CharComponent = (props) => {
+    return (
+        <div className="Char" onClick={props.removeChar}>
+            {props.character}
+        </div>
+    );
+};
 
 export default CharComponent;
