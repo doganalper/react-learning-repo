@@ -49,4 +49,10 @@
     oluşturulan fonksiyonlara argüman göndermek: 
         - this.switchNameHandler.bind(this,'Anıl')
         - () => this.switchNameHandler('Görkem') fazla kullanılmaması önerilir!
+
+    
+    JSX'de {} arasında blocklu kodlar kullanamayız if, switch gibi. (if yerine x ? y : z kullanılabilir.)
+
+    handlerlarda (state değiştiren funclarda) direkt olarak state değişkenini değiştirmek yerine spread operatörü ile
+    bir değişken yarat ve orada değişikliği yap ondan sonra setState içerisinde state değişikliğini yap.
 */
