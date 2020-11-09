@@ -62,4 +62,6 @@
 
     styled-component library sayesinde const {StyledCompName} = styled.{tagType}`` şeklinde comp oluşturup backtickler arasına styling yapabiliriz.
     &:hover {} şeklinde pseudo selectionlar yapabiliriz.
+
+    react-scripts 2> kullanıyorsan css module yapmak için bir şey yapmana gerek yok. {fileName}.module.css şeklinde dosya yapıp oradan import etmen yeterlidir.
 */
