@@ -40,17 +40,9 @@ class App extends Component {
     this.setState({ showPersons: !this.state.showPersons})
   }
 
-  style = {
-    backgroundColor: 'lightblue',
-    font: 'inherit',
-    color: 'red',
-    border: '1px solid blue',
-    borderRadius: '5px',
-    padding: '8px',
-    cursor: 'pointer'
-  }
   
   render() {
+
     let persons = null;
     if (this.state.showPersons) {
       persons = (
@@ -70,18 +62,27 @@ class App extends Component {
       );
     }
 
+    const classes = [];
+    if (this.state.persons.length <= 2) {
+      classes.push('red');
+    }
+    if (this.state.persons.length <= 1) {
+      classes.push('bold');
+    }
 
     return (
-      <div className="App">
-        <h1>Hi, I'm a React App! </h1>
-        <button onClick={this.togglePersonsHandler} style={this.style}>
-          { this.state.showPersons ? 'Toggle Persons' : 'Show Persons'}
-        </button>
-        { persons }
-      </div>
+        <div className="App">
+          <h1>Hi, I'm a React App! </h1>
+          <p className={ classes.join(' ') }>This is really working!</p>
+          <StyledButton alt={this.state.showPersons} onClick={this.togglePersonsHandler}>
+            { this.state.showPersons ? 'Toggle Persons' : 'Show Persons'}
+          </StyledButton>
+          { persons }
+        </div>
     );
   }
 }
 
 export default App;
 
+// HOC yapımı oluyor Radium(App);

@@ -55,4 +55,11 @@
 
     handlerlarda (state değiştiren funclarda) direkt olarak state değişkenini değiştirmek yerine spread operatörü ile
     bir değişken yarat ve orada değişikliği yap ondan sonra setState içerisinde state değişikliğini yap.
+
+    Radium library sayesinde js kısımlarında pseudo selectorlar ve media queryler kullanabiliriz.
+    componenti export ederken HOC yapmak gerekir ==> Radium(compName) şeklinde.
+    media query kullanılacaksa ana dosyayı Radium'dan import edilen <StyleRoot> tagi arasına alırız.
+
+    styled-component library sayesinde const {StyledCompName} = styled.{tagType}`` şeklinde comp oluşturup backtickler arasına styling yapabiliriz.
+    &:hover {} şeklinde pseudo selectionlar yapabiliriz.
 */
