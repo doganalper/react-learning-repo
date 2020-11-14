@@ -64,4 +64,58 @@
     &:hover {} şeklinde pseudo selectionlar yapabiliriz.
 
     react-scripts 2> kullanıyorsan css module yapmak için bir şey yapmana gerek yok. {fileName}.module.css şeklinde dosya yapıp oradan import etmen yeterlidir.
+
+
+    COMPONENT LIFECYCLES
+    * sadece class componentlarda vardır.
+    - CREATION
+    --> constructor kullanımında super(props) olmalı.
+    --- basic init için, init state için
+    --- htpp request, browser storing gibi şeyler yapılmaz!
+    --> getDerivedStateFromProps(props,state)
+    --- sync state için
+    --- fazla kullanılmaz
+    --> render()
+    --> render child components (FUNC DEĞİL!)
+    --> componentDidMount()
+    --- http requestler için kullanılır.
+    --- promise then,catch dışında setState kullanma!
+
+    COMPONENT LIFECYCLES - UPDATE
+    --> shouldComponentUpdate(nextProps, nextState)
+    --- decide whether to continue or not
+    --- may cancel updating process!
+    --> render()
+    --> update child component props (FUNC DEĞİL!)
+    --> getSnapshotBeforeUpdate(prevProps, prevState)
+    --> componentDidUpdate()
+    --- can cause side-effects
+    --- don't update state unless it's on promise part of request
+
+    useEffect() hook:
+    componentDidMount şeklinde func componentlarda kullanılır.
+    http requestleri yapılabilir içinde.
+    ilk parametre olarak callback func alır bu da yapılacak işlemi belirtir.
+    ikinci parametre değer ise hangi değerler değiştiğinde bu useEffect'in çalışacağıdır.
+    [variable] şeklinde kullanılır ikinci parametre. boş olursa bu liste ilk defa mounted olduğu zaman çalışır.
+    birden fazla useEffect kullanabiliriz.
+    useEffect'te return ile function döndürülürse, o component unmount olduğu zaman yapılacak işlemler o function içinde yapılır.
+
+    eğer shouldcomponentupdate ile bir componenttaki BÜTÜN propların değişimi kontrol edilip devam edilmesi karar veriliyorsa
+    onun yerine PureComponent inherit ettiririz, normal component yerine
+
+    bir componentin etrafının temel bir tag ile sarılması lazımdır (genelde div ile başlar).
+    ama bazı zamanlarda (domda kirlilik oluşmasın gibi vs.) bunun yerine HOC kullanırız. (AUX)
+    bu hoc bir componenttir ve sadece props.children döndürür.
+    bunun yerine react ile gelen bir aux component vardır ve React.Fragment şeklinde ulaşışılır.
+    HOC yazmanın birden fazla yolu vardır ve birden fazla tipte HOC tipleri vardır, farklı amaçlar için kullanılır.
+
+    setState en uygun kullanımı:
+    this.setState((prevState, props) => {
+      return {
+        persons: persons,
+        changeCounter: prevState.changedCounter++
+      }
+    }
+    )
 */
